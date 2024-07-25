@@ -41,7 +41,6 @@ def download(match_libc):
 
     lines_new = output1.splitlines()
     lines_old = output2.splitlines()
-    print(libc_version)
     if libc_version in lines_new: # Check if the list contains libc version and change download's flag
         print(f"[*] {libc_version} 存在于list中")
         download_flags = 1
