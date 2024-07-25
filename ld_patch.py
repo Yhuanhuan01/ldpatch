@@ -67,7 +67,6 @@ def download(match_libc):
                 command3 = "sudo ~/glibc-all-in-one/download {}".format(libc_version)
                 subprocess.run(command3, shell=True, capture_output=True, text=True)
                 pwd = "~/glibc-all-in-one/libs/{}".format(libc_version)
-                print(pwd)
         elif download_flags == 2:
                 command3 = "sudo ~/glibc-all-in-one/download_old {}".format(libc_version)
                 subprocess.run(command3, shell=True, capture_output=True, text=True)
