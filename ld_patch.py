@@ -13,6 +13,7 @@ def Found(libc,elf):# found libc's version
 
     pattern = r'\(([^)]+)\)'
     match_libc = re.search(pattern, output_libc)
+    # print(match_libc)
     if match_libc:
         print("[*] "+match_libc.group(1))
     else:
@@ -41,6 +42,7 @@ def download(match_libc):
 
     lines_new = output1.splitlines()
     lines_old = output2.splitlines()
+    lines_all = []
     if libc_version in lines_new: # Check if the list contains libc version and change download's flag
         print(f"[*] {libc_version} 存在于list中")
         download_flags = 1
@@ -50,7 +52,15 @@ def download(match_libc):
     else:
         print("[+] List Not have the libc version")
         print('[-] Check the list and choose the libc version you think is appropriate')
-        print(lines_new + lines_old)
+        list_all = lines_new + lines_old
+        if ld_flags == 'x64':
+            suffix = '_amd64'
+        else:
+            suffix = '_i386'
+        filtered_packages = [pkg for pkg in list_all if pkg.endswith(suffix)]
+        for list_all in filtered_packages:
+            print(list_all)
+
         time.sleep(1)
         print("[-] Please enter the libc version you want to patchelf")
         libc_version = input(">>>\n")
