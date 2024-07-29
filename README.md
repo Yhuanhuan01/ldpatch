@@ -8,6 +8,8 @@ You can easily implement one-click patchelf, reducing the time spent on patching
 You need to place glibc-all-in-one in your user directory
 
 ## Installation and Usage
+- ./install.sh
+
 - git clone https://github.com/Yhuanhuan01/ldpatch.git
 
 - python main.py libc.so.6 elfname
